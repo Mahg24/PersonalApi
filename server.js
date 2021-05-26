@@ -1,0 +1,11 @@
+const express = require("express");
+const cors = require("cors");
+const config = require("./config/config");
+const router = require("./routes/router");
+let app = express();
+app.use(cors());
+app.listen(config.port);
+router(app);
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+console.log("Ready in port :" + config.port);
