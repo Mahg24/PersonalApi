@@ -3,6 +3,7 @@ const response = require("../middlewares/response");
 const controller = require("../controller/mailsenderController");
 const router = express.Router();
 router.post("/contact", (req, res) => {
+  console.log(req.body);
   controller
     .ContactForm(req.body)
     .then((obj) => {
