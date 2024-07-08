@@ -6,25 +6,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
+exports.JobsModule = void 0;
 const common_1 = require("@nestjs/common");
-const app_controller_1 = require("./app.controller");
-const app_service_1 = require("./app.service");
+const jobs_service_1 = require("./jobs.service");
+const jobs_controller_1 = require("./jobs.controller");
 const mongoose_1 = require("@nestjs/mongoose");
-const jobs_module_1 = require("./jobs/jobs.module");
-const config_1 = require("@nestjs/config");
-let AppModule = class AppModule {
+const job_schema_1 = require("./job.schema");
+let JobsModule = class JobsModule {
 };
-exports.AppModule = AppModule;
-exports.AppModule = AppModule = __decorate([
+exports.JobsModule = JobsModule;
+exports.JobsModule = JobsModule = __decorate([
     (0, common_1.Module)({
-        imports: [
-            config_1.ConfigModule.forRoot({ isGlobal: true }),
-            jobs_module_1.JobsModule,
-            mongoose_1.MongooseModule.forRoot(process.env.MONGOURL),
-        ],
-        controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
+        imports: [mongoose_1.MongooseModule.forFeature([{ name: job_schema_1.Job.name, schema: job_schema_1.JobSchema }])],
+        providers: [jobs_service_1.JobsService],
+        controllers: [jobs_controller_1.JobsController],
     })
-], AppModule);
-//# sourceMappingURL=app.module.js.map
+], JobsModule);
+//# sourceMappingURL=jobs.module.js.map
