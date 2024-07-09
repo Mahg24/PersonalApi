@@ -5,5 +5,5 @@ export declare class JobsService {
     private jobModel;
     constructor(jobModel: Model<Job>);
     getjobs(): Promise<Job[]>;
-    postJob(job: JobDto): Promise<Job>;
+    createJob(job: JobDto): Promise<Job>;
 }

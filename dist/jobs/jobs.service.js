@@ -24,7 +24,7 @@ let JobsService = class JobsService {
     async getjobs() {
         return await this.jobModel.find({});
     }
-    async postJob(job) {
+    async createJob(job) {
         const createdJob = new this.jobModel(job);
         return createdJob.save();
     }
