@@ -24,7 +24,7 @@ let JobsController = class JobsController {
         return await this.jobService.getjobs();
     }
     async createjob(Job) {
-        return await this.jobService.postJob(Job);
+        return await this.jobService.createJob(Job);
     }
 };
 exports.JobsController = JobsController;
