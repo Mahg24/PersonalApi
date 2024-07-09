@@ -1,6 +1,6 @@
 import { Job } from './job.schema';
 import { Model } from 'mongoose';
-import { JobDto } from 'src/job.dto';
+import { JobDto } from 'src/jobs/job.dto';
 export declare class JobsService {
     private jobModel;
     constructor(jobModel: Model<Job>);

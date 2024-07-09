@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Job } from './job.schema';
 import { Model } from 'mongoose';
-import { JobDto } from 'src/job.dto';
+import { JobDto } from 'src/jobs/job.dto';
 
 @Injectable()
 export class JobsService {
@@ -12,7 +12,7 @@ export class JobsService {
     return await this.jobModel.find({});
   }
 
-  async postJob(job: JobDto): Promise<Job> {
+  async createJob(job: JobDto): Promise<Job> {
     const createdJob = new this.jobModel(job);
     return createdJob.save();
   }
